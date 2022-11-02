@@ -4,6 +4,7 @@
 
 // Defines the number of steps per rotation
 const int stepsPerRevolution = 2038;
+const int rot_speed = 20;
 
 // ULN2003 Motor Driver Pins
 #define IN1 19
@@ -20,13 +21,9 @@ void setup() {
 }
 
 void loop() {
-  // Rotate CW slowly
-  myStepper.setSpeed(100);
-  myStepper.step(stepsPerRevolution);
-  delay(1000);
-  
-  // Rotate CCW quickly
-  myStepper.setSpeed(700);
-  myStepper.step(-stepsPerRevolution);
+  // Rotate CCW quickly at 10 RPM
+  myStepper.setSpeed(rot_speed);
+  myStepper.step(100);
+  myStepper.step(-100);
   delay(1000);
 }
