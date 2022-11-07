@@ -2,10 +2,10 @@
 #include "DEV_stepper.h"
 
 // ULN2003 Motor Driver Pins
-const int IN1 = 19;
-const int IN2 = 18;
-const int IN3 = 5;
-const int IN4 = 17;
+const int IN1 = 14;
+const int IN2 = 27;
+const int IN3 = 26;
+const int IN4 = 25;
 
 
 void setup() {
