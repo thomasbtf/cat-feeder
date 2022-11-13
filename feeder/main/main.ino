@@ -1,17 +1,14 @@
 #include "HomeSpan.h"
 #include "DEV_stepper.h"
 
-// ULN2003 Motor Driver Pins
-const int IN1 = 14;
-const int IN2 = 27;
-const int IN3 = 26;
-const int IN4 = 25;
-
+#define stepPin 25
+#define dirPin 26
+#define enablePin 27
 
 void setup() {
-  Serial.println("Setting up device.");
   Serial.begin(115200);
-
+  
+  Serial.println("Setting up device.");
   homeSpan.begin(Category::Bridges,"HomeSpan Bridge");
 
   Serial.println("Setting up Bridge");
@@ -24,7 +21,7 @@ void setup() {
   new Service::AccessoryInformation();
   new Characteristic::Identify(); 
   new Characteristic::Name("Mampf");
-  new DEV_Stepper(IN1, IN2, IN3, IN4);
+  new DEV_Stepper(stepPin, dirPin, enablePin);
 }
 
 void loop() {
